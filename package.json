@@ -1,0 +1,30 @@
+{
+  "name": "lmdb-examples",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wyrover/node-lmdb-examples.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wyrover/node-lmdb-examples/issues"
+  },
+  "homepage": "https://github.com/wyrover/node-lmdb-examples#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.0",
+    "@babel/core": "^7.8.0",
+    "@babel/node": "^7.8.0",
+    "@babel/preset-env": "^7.8.2",
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "node-lmdb": "^0.7.0"
+  }
+}
