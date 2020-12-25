@@ -1,6 +1,8 @@
 import lmdb from 'node-lmdb'
+import levelup from 'levelup'
+import leveldown from 'leveldown'
 
-(async function main() {
+async function test_lmdb() {
   console.log('Current lmdb version is', lmdb.version)
   let env = new lmdb.Env()
   env.open({
@@ -32,4 +34,25 @@ import lmdb from 'node-lmdb'
 
   dbi.close()
   env.close()
+}
+
+async function test_leveldb() {
+  let db = levelup(leveldown('./mydb'))
+
+  db.put('name', 'levelup', function(err) {
+    if (err) return console.log('Ooops!', err) // some kind of I/O error
+
+    // 3) Fetch by key
+    db.get('name', function(err, value) {
+      if (err) return console.log('Ooops!', err) // likely the key was not found
+
+      // Ta da!
+      console.log('name=' + value)
+    })
+  })
+}
+
+;(async function main() {
+  test_lmdb()
+  test_leveldb()
 })()
